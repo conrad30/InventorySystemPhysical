@@ -1,11 +1,21 @@
 <template>
-    <div>
-        <nuxt class="bg-gray-200 w-full h-screen" />
+    <div class="flex flex-col h-screen relative w-screen">
+        <naviWrapper class="absolute top-0 z-30 w-screen"/>
+        <div class="flex-1">
+                <div class="flex">
+        <nuxt class="pt-20 bg-gray-200 w-full h-screen pb-5 px-5 overflow-y-auto"/>
+
+        </div>
     </div>
+</div>
 </template>
 <script>
+    import NaviWrapper from '~/components/navi/Wrapper.vue';
     export default{
         name:"dashboard",
+        components:{
+            NaviWrapper
+        }
     }
 
 </script>
