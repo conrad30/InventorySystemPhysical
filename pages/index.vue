@@ -1,78 +1,70 @@
-<template>
-  <div class="container">
-    <div>
-      <Logo />
-      <h1 class="title">
-        FS360-inventory-JUL
-      </h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
+  <template>
+    <div class=" flex h-screen w-full bg-red-800">
+      <div class="m-auto w-full px-5 md:w-1/3">
+        <div class="pl-1 text-white font-medium text-2xl tracking-wide text-center">
+          Inventory System {{email}}
+      </div>
+      <form>
+        <div class="my-2">
+        <inputElement
+          :labelName="'EMAIL'"
+          :labelId="'email'"
+          :inputType="'email'"
+          :model="email"
+          @input="email = $event"
+          :disabled="false"
+        
+        />
+        </div>
+        <div class="my-2">
+          <inputElement
+          :labelName="'PASSWORD'"
+          :labelId="'password'"
+          :inputType="'password'"
+          :model="password"
+          @input="password = $event"
+          :disabled="false"
+        
+        />
+        </div>
+
+        <button type="button" class="
+                    transition
+                    duration-500
+                    ease-in-out
+                    bg-red-500
+                    rounded-xs
+                    w-full
+                    py-3
+                    text-black
+                    font-sans
+                    font-bold
+                    tracking-wide
+                    hover:bg-red-200
+                    hover:text-black-400
+                    active:outline-none
+                    focus:outline-none">SIGN IN </button>
+      </form>
       </div>
     </div>
-  </div>
-</template>
+  </template>
 
-<script>
-export default {}
-</script>
+  <script>
+    import Logo from '~/components/items/Logo.vue'
+    import InputElement from "~/components/items/Input.vue";
 
-<style>
-/* Sample `apply` at-rules with Tailwind CSS
-.container {
-@apply min-h-screen flex justify-center items-center text-center mx-auto;
-}
-*/
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
+  export default{
+      components: {
+        Logo,
+        InputElement 
+      },
+      data: function(){
+        return{
+          email: "",
+          password: ""
 
-.title {
-  font-family:
-    'Quicksand',
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
+        }
+      }
+    }
 
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
-</style>
+  </script>
