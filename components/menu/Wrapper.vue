@@ -25,7 +25,7 @@
                     <i class="fas fa-home ml-6 mr-4"></i>
                     <label class="flex-shrink-0 ml-2 text-sm font-sans tracking-wide cursor-pointer">Dashboard</label>
                 </div>
-    </template>
+            </template>
     </menuLink>
         <menuLinkList :url="'/products'"
                   :class="{
@@ -57,7 +57,7 @@
                         </template>   
                       </menuLink> 
                           
-                </template>
+                    </template>
     </menuLinkLIst>
     
     </div>

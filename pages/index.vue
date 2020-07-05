@@ -43,13 +43,13 @@
                     hover:bg-red-200
                     hover:text-black-400
                     active:outline-none
-                    focus:outline-none">SIGN IN </button>
+                    focus:outline-none" @click="login">SIGN IN </button>
       </form>
       </div>
     </div>
   </template>
 
-  <script>
+<script>
     import Logo from '~/components/items/Logo.vue'
     import InputElement from "~/components/items/Input.vue";
 
@@ -75,6 +75,11 @@
 
         }
       },
+      methods: {
+        login: function(){
+          this.$router.push("/dashboard")
+        }
+      }
     }
 
-  </script>
+</script>
