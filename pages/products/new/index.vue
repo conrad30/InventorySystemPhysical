@@ -168,6 +168,7 @@
     import ContentCard from "~/components/items/ContentCard.vue";
     import InputElement from "~/components/items/Input.vue";
     import SelectElement from "~/components/items/Select.vue";
+    import { mapState } from 'vuex';
     export default {
         layout:"dashboard",
         components:{
@@ -175,7 +176,18 @@
             InputElement,
             SelectElement
         },
-        data () {
+        computed:{
+            ...mapState({ bean: state => state.product.bean,
+            roastLevel: state => state.product.roastLevel,
+            roastLevelList: state => state.product.roastLevelList,
+            weightPerPack: state => state.product.weightPerPack,
+            weightBeforeRoast: state => state.product.weightBeforeRoast,
+            weightAfterRoast: state => state.product.weightAfterRoast,
+            profile: state => state.product.profile,
+            selectedStock: state => state.product.selectedStock
+            })
+        },
+        /*data () {
             return{
                 bean: '',
                 roastLevel: '',
@@ -189,7 +201,10 @@
                     purchasedStock: 15
                 }
             }
-        },
+        },*/
+      
+           
+
         filters:{
             prettyAmount (amount){
                 return parseFloat(amount).toFixed(2)
