@@ -42,6 +42,7 @@ export default {
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
+    {src:'~/plugins/apiFactory.js'},
   ],
   /*
   ** Auto import components

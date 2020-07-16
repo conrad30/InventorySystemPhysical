@@ -14,7 +14,7 @@
     </div>
 </template>
 
-<script>
+  <script>
 import ContentCard from "~/components/items/ContentCard.vue";
 import BarChart from '~/components/charts/BarChart';
 
@@ -26,8 +26,8 @@ import BarChart from '~/components/charts/BarChart';
        green: 'rgb(75,192,192)',
        blue: 'rgb(54, 162, 235)',
      purple: 'rgb(153,102,255)',
-       grey:'rgb(0,153,76)',
-
+      grey: 'rgb(201,203,207)',
+      teal: 'rgb(0,153,76)',
 
     };
 
@@ -54,7 +54,15 @@ import BarChart from '~/components/charts/BarChart';
             barChartOptions:{}
        
               }
-          }
-      },
+         }
+     },
+
+     async mounted(){
+
+       await.this.$apis.dashboard.revenue()
+          .then(res => { this.revenueMonthly = res })
+
     }
-</script>
+
+  }
+  </script>
