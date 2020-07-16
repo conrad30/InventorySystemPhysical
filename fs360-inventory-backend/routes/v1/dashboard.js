@@ -18,7 +18,7 @@ const chartColors = {
 
 
 router.get("/revenue", asyncHandler(async function (req, res, next) {
-  return res.json({
+  return res.json(
   barChartData: {
     labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
       datasets: [

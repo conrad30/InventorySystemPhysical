@@ -17,7 +17,7 @@
 <script>
 import ContentCard from "~/components/items/ContentCard.vue";
 import BarChart from '~/components/charts/BarChart';
-import LineChart from '~/components/charts/LineChart';
+
     
     const chartColors = {
         red: 'rgb(255, 99, 132)',
@@ -26,7 +26,7 @@ import LineChart from '~/components/charts/LineChart';
        green: 'rgb(75,192,192)',
        blue: 'rgb(54, 162, 235)',
      purple: 'rgb(153,102,255)',
-       grey:'rgb(201,203,207)'
+       grey:'rgb(0,153,76)',
 
 
     };
@@ -36,7 +36,7 @@ import LineChart from '~/components/charts/LineChart';
     components:{
         ContentCard,
         BarChart,
-        LineChart
+        
     },
       transition:{
         name:"inventory",
@@ -49,54 +49,12 @@ import LineChart from '~/components/charts/LineChart';
       },
     data(){
         return{
-            revenueMonthly: {
-                barChartData:{
-                    labels:['Jan', 'Feb', 'Mar','Apr','Mar'],
-                    datasets:[
-                        {
-                            label: 'Income',
-                            backgroundColor: [
-                                chartColors.green,
-                                chartColors.green,
-                                chartColors.green,
-                                chartColors.green,
-                                chartColors.green],
-                            data:[5,3,4,6,4]
-                        }
-
-                    ],
-                },
-                barChartOptions:{
-                    responsive: true,
-                    legend: {
-                        display:false,
-                    },
-                    title: {
-                        display:true,
-                        text: 'Monthly Income'
-                    },
-                    scales: {    
-                        yAxes:  [
-                            {
-                                ticks: {
-                                    beginAtZero: true,
-                                    suggestedMax: 10
-                                    
-                                }
-
-                            }
-
-                        ]
-
-
-                    }
-                },
-
-
-            }
-
-        }
-
-    },
+          revenueMonthly: {
+            barChartData{},
+            barChartOptions:{}
+       
+              }
+          }
+      },
     }
 </script>
