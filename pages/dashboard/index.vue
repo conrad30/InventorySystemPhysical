@@ -47,19 +47,19 @@ import BarChart from '~/components/charts/BarChart';
 
 
       },
-    data(){
-        return{
+      data() {
+        return {
           revenueMonthly: {
-            barChartData{},
-            barChartOptions:{}
-       
-              }
-         }
-     },
+            barChartData:{},
+          barChartOptions:{}
+      }
+      }
+              
+   },
 
      async mounted(){
 
-       await.this.$apis.dashboard.revenue()
+       await this.$apis.dashboard.revenue()
           .then(res => { this.revenueMonthly = res })
 
     }

@@ -55,7 +55,7 @@
                 </div>
                 <div class="items-center my-2">
                    <div class="font-sans text-sm font-thin tracking-wide text-teal-700 text-center">
-                        BEANS COST PER PACK <br/> (MYR BY{{weightPerPack? weightPerpack:0}}GRAM)
+                        BEANS COST PER PACK <br/> (MYR BY{{weightPerpack? weightPerpack:0}}GRAM)
                     </div>
                     <div class="font-sans text-sm font-medium text-3xl tracking-wide text-teal-600 text-center">
                        {{roastedBeanPerPack() | prettyAmount}}
@@ -87,9 +87,7 @@
                             :model="roastLevel"
                             @select="setRoastLevel($event)">
                             <template v-slot:select-options>
-                                <option
-                                    v-for="roast in roastLevelList" :key="roast"
-                                    :value="roast">
+                                <option v-for="roast in roastLevelList" :key="roast" :value="roast">
                                         {{ roast }}
                                 </option>
                             </template>
@@ -155,7 +153,7 @@
                                 focus:outline-none
                                 active:outline-none
                                 w-full
-                                " type="button">New Product
+                                " type="button" @click="createProduct">New Product
                     </button>
                 </div>
                 </form>
@@ -168,7 +166,7 @@
     import ContentCard from "~/components/items/ContentCard.vue";
     import InputElement from "~/components/items/Input.vue";
     import SelectElement from "~/components/items/Select.vue";
-    import { mapState, mapMutations} from 'vuex';
+    import { mapState, mapMutations, mapActions } from 'vuex';
     export default {
         layout:"dashboard",
         components:{
@@ -180,7 +178,7 @@
             ...mapState({ bean: state => state.product.bean,
             roastLevel: state => state.product.roastLevel,
             roastLevelList: state => state.product.roastLevelList,
-            weightPerpack: state => state.product.weightPerPack,      
+            weightPerpack: state => state.product.weightPerpack,      
             weightBeforeRoast: state => state.product.weightBeforeRoast,
             weightAfterRoast: state => state.product.weightAfterRoast,
             profile: state => state.product.profile,
@@ -219,6 +217,10 @@
         setWeightBeforeRoast: 'product/setWeightBeforeRoast',
         setWeightAfterRoast: 'product/setWeightAfterRoast',
         setProfile: 'product/setProfile',
+      }),
+
+      ...mapActions({
+        createProduct: 'product/createProduct'
       }),
 
             waterLose(){
