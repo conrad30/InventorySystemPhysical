@@ -76,7 +76,7 @@
                             :labelId="'beanName'"
                             :inputType="'text'"
                             :model="bean"
-                            @input="bean = $event"
+                            @input="setBean($event)"
                             :disable="false"
                             />
                     <i class="fas fa-globe-asia absolute top-0 text-gray-500 right-0-p-3"></i>
@@ -85,7 +85,7 @@
                         <selectElement
                             :labelName="'ROAST LEVEL'"
                             :model="roastLevel"
-                            @select="roastLevel = $event">
+                            @select="setRoastLevel($event)">
                             <template v-slot:select-options>
                                 <option
                                     v-for="roast in roastLevelList" :key="roast"
@@ -101,7 +101,7 @@
                             :labelId="'weightPerpack'"
                             :inputType="'text'"
                             :model="weightPerpack"
-                            @input="weightPerpack = $event"
+                            @input="setWeightPerpack($event)"
                             :disabled="false"
                         />
                     <i class="fas fa-globe-asia absolute top-0 text-gray-500 right-0 p-3"></i>
@@ -112,7 +112,7 @@
                             :labelId="'weightBeforeRoast'"   
                             :inputType="'text'"
                             :model="'weightBeforeRoast'"
-                            @input="weightBeforeRoast = $event"
+                            @input="setWeightBeforeRoast($event)"
                             :disabled="false"
                         /> 
                     <i class="fas fa-globe-asia absolute top-0 text-gray-500 right-0 p-3"></i>
@@ -123,7 +123,7 @@
                             :labelId="'weightAfterRoast'"   
                             :inputType="'text'"
                             :model="'weightAfterRoast'"
-                            @input="weightAfterRoast = $event"
+                            @input="setWeightAfterRoast($event)"
                             :disabled="false"
                         /> 
                     <i class="fas fa-globe-asia absolute top-0 text-gray-500 right-0 p-3"></i>
@@ -168,7 +168,7 @@
     import ContentCard from "~/components/items/ContentCard.vue";
     import InputElement from "~/components/items/Input.vue";
     import SelectElement from "~/components/items/Select.vue";
-    import { mapState } from 'vuex';
+    import { mapState, mapMutations} from 'vuex';
     export default {
         layout:"dashboard",
         components:{
@@ -180,14 +180,14 @@
             ...mapState({ bean: state => state.product.bean,
             roastLevel: state => state.product.roastLevel,
             roastLevelList: state => state.product.roastLevelList,
-            weightPerPack: state => state.product.weightPerPack,
+            weightPerpack: state => state.product.weightPerPack,      
             weightBeforeRoast: state => state.product.weightBeforeRoast,
             weightAfterRoast: state => state.product.weightAfterRoast,
             profile: state => state.product.profile,
             selectedStock: state => state.product.selectedStock
             })
         },
-        /*data () {
+        /*data () 
             return{
                 bean: '',
                 roastLevel: '',
@@ -210,7 +210,17 @@
                 return parseFloat(amount).toFixed(2)
             }
         },
-        methods: {
+    methods: {
+      ...mapMutations({
+        resetStore: 'product/resetStore',
+        setBean: 'product/setBean',
+        setRoastLevel: 'product/setRoastLevel',
+        setWeightPerpack: 'product/setWeightPerpack',
+        setWeightBeforeRoast: 'product/setWeightBeforeRoast',
+        setWeightAfterRoast: 'product/setWeightAfterRoast',
+        setProfile: 'product/setProfile',
+      }),
+
             waterLose(){
                 let wL = this.weightAfterRoast && this.weightBeforeRoast ?
             (1-(this.weightAfterRoast/this.weightBeforeRoast)) *100 : 0.0
@@ -242,8 +252,11 @@
                     return packs
                 }
            
-       }
+    },
+    beforeDestroy() {
+      this.resetStore();
+    }
 
-        }
+  }
     
 </script>
