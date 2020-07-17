@@ -17,20 +17,24 @@
                 <i class="fas fa-bars"></i>
             </template>
         </naviButton>
+        </div>
 
-
+      <div>
+        <userWrapper />
         </div>
     </div>
 </template>
 <script>
     import NaviButton from "~/components/items/NaviButton.vue";
     import MenuLink from "~/components/items/MenuLink.vue";
+    import UserWrapper from "~/components/user/Wrapper.vue";
     import { mapMutations } from 'vuex'
 
     export default{
         components:{
             NaviButton,
-            MenuLink
+            MenuLink,
+            UserWrapper
         },
         methods:{
             ...mapMutations({

@@ -50,8 +50,10 @@
   </template>
 
 <script>
-    import Logo from '~/components/items/Logo.vue'
-    import InputElement from "~/components/items/Input.vue";
+  import Logo from '~/components/items/Logo.vue'
+  import InputElement from "~/components/items/Input.vue";
+  import { mapState, mapActions } from "vuex";
+  
 
   export default{
       transition:{
@@ -74,12 +76,28 @@
           password: ""
 
         }
-      },
+    },
+    computed: {
+      ...mapState({
+          isLoggedIn : state => state.auth.isLoggedIn,
+
+      })
+
+    },
       methods: {
         login: function(){
+          this.googleLogin({ email:this.email, password:this.password})
+        },
+        ...mapActions({
+           googleLogin: "auth/firebaseLogin"
+        })
+    },
+    mounted() {
+      if (this.isLoggedIn) {
           this.$router.push("/dashboard")
-        }
       }
+
+    }
     }
 
 </script>
