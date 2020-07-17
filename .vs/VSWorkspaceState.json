@@ -1,15 +1,16 @@
 {
   "ExpandedNodes": [
     "",
-    "\\apis",
-    "\\components\\items",
     "\\fs360-inventory-backend",
+    "\\fs360-inventory-backend\\routes",
     "\\fs360-inventory-backend\\routes\\v1",
+    "\\layouts",
+    "\\pages",
     "\\pages\\dashboard",
     "\\pages\\products",
     "\\pages\\products\\new",
     "\\store"
   ],
-  "SelectedNode": "\\fs360-inventory-backend",
+  "SelectedNode": "\\pages\\products\\new\\index.vue",
   "PreviewInSolutionExplorer": false
 }

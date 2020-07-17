@@ -10,7 +10,8 @@ const defaultState = () => {
     selectedStock: {
     price: 500,
     purchasedStock: 15
-    }
+      },
+      existProduct: []
     }
     };
     export const state = () => defaultState();
@@ -36,17 +37,29 @@ const defaultState = () => {
         },
         setProfile: (state, profile) =>{
 
-            state.profile = profile
-        },
+           // state.profile = profile
+      },
+      setExistProduct: (state, existProduct) => {
+            state.existProduct = existProduct['products']
+      }
 
     }
 
 export const actions = {
   async createProduct({ state, commit }) {
-    await this.$apis.product.new(state)
+  },
+  async getProduct({ commit }) {
+    await this.$apis.product.all()
+      .then(res => commit("setExistProduct", res))
+
+  }
+  /*
+  await this.$apis.product.new(state)
     commit("resetStore")//Reset the state
     this.$router.push("/products")// Move back to product page
 
-  }
+  }*/
+
+
 }
 
