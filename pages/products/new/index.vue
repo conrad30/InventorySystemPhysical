@@ -99,7 +99,7 @@
                             :labelId="'weightPerpack'"
                             :inputType="'text'"
                             :model="weightPerpack"
-                            @input="setWeightPerpack($event)"
+                            @input="setweightPerpack($event)"
                             :disabled="false"
                         />
                     <i class="fas fa-globe-asia absolute top-0 text-gray-500 right-0 p-3"></i>
@@ -110,7 +110,7 @@
                             :labelId="'weightBeforeRoast'"   
                             :inputType="'text'"
                             :model="'weightBeforeRoast'"
-                            @input="setWeightBeforeRoast($event)"
+                            @input="setweightBeforeRoast($event)"
                             :disabled="false"
                         /> 
                     <i class="fas fa-globe-asia absolute top-0 text-gray-500 right-0 p-3"></i>
@@ -121,7 +121,7 @@
                             :labelId="'weightAfterRoast'"   
                             :inputType="'text'"
                             :model="'weightAfterRoast'"
-                            @input="setWeightAfterRoast($event)"
+                            @input="setweightAfterRoast($event)"
                             :disabled="false"
                         /> 
                     <i class="fas fa-globe-asia absolute top-0 text-gray-500 right-0 p-3"></i>
@@ -214,9 +214,9 @@
         resetStore: 'product/resetStore',
         setBean: 'product/setBean',
         setRoastLevel: 'product/setRoastLevel',
-        setWeightPerpack: 'product/setWeightPerpack',
-        setWeightBeforeRoast: 'product/setWeightBeforeRoast',
-        setWeightAfterRoast: 'product/setWeightAfterRoast',
+        setweightPerpack: 'product/setweightPerpack',
+        setweightBeforeRoast: 'product/setweightBeforeRoast',
+        setweightAfterRoast: 'product/setweightAfterRoast',
         setProfile: 'product/setProfile',
       }),
 
