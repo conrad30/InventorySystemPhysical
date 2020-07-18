@@ -1,7 +1,7 @@
-const defaultState = () =>{
+const defaultState = () => {
     return {
-      showMenu: false,
-      profileMenu: false
+        showMenu: false,
+        profileMenu: false
 
     }
 };
@@ -9,10 +9,10 @@ const defaultState = () =>{
 export const state = () => defaultState();
 
 export const mutations = {
-    toggleMenu(state){
-    state.showMenu = !state.showMenu
-  },
-  toggleProfileMenu(state){
-  toggleProfileMenu = !state.profileMenu
-  }
+    toggleMenu(state) {
+        state.showMenu = !state.showMenu
+    },
+    toggleProfileMenu(state) {
+        state.ProfileMenu = !state.profileMenu
+    }
 }

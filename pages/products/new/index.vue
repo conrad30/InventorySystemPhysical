@@ -132,7 +132,7 @@
                         :labelID="'profile'"
                         :inputType="'text'"
                         :model="profile"
-                        @input="profile = $event"
+                        @input="setProfile($event)"
                         :disabled="false"
                         /> 
                     <i class="fas fa-globe-asia absolute top-0 text-gray-500 right-0 p-3"></i>
@@ -153,7 +153,8 @@
                                 focus:outline-none
                                 active:outline-none
                                 w-full
-                                " type="button" @click="createProduct">New Product
+                                " 
+                                type="button" @click="createProduct">New Product
                     </button>
                 </div>
                 </form>
