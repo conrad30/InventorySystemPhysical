@@ -1,4 +1,5 @@
 
+const firebaseConfig = process.env.FIREBASE_SERVICE_ACCOUNT?process.env.FIREBASE_SERVICE_ACCOUNT: "{}";
 export default {
 
 
@@ -62,6 +63,33 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+    // Doc: https://github.com/nuxt-community/dotenv-module
+    '@nuxtjs/dotenv',
+    [
+      '@nuxtjs/firebase',
+      {
+        config: JSON.parse(firebaseConfig),
+        services: {
+          realtimeDb: false,
+          auth: {
+            persistence: 'session',
+            initialize:{
+              onAuthStateChangedAction : 'auth/onAuthStateChangedAction',
+            },
+            ssr: true
+
+          }
+
+
+        }
+
+
+      }
+
+
+
+    ]
+
   ],
   /*
   ** Axios module configuration

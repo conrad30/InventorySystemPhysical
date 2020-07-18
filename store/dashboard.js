@@ -12,6 +12,7 @@ export const mutations = {
     toggleMenu(state){
     state.showMenu = !state.showMenu
   },
+  toggleProfileMenu(state){
   toggleProfileMenu = !state.profileMenu
-
+  }
 }

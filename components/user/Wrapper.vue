@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button type="button" class="h-12 w-12 rounded-full overflow-hidden focus:outline-none hover:shadow-2xl md:mr-1 lg:mr-1 xl:mr-1">
+    <button type="button" class="h-12 w-12 rounded-full overflow-hidden focus:outline-none hover:shadow-2xl md:mr-1 lg:mr-1 xl:mr-1" @click="toggleProfileMenu" >
 
       <userProfileImg />
       </button>
@@ -13,7 +13,7 @@
          'border':true,
          'bg-white':true,
          'rounded-sm':true,
-         'mt-2':true
+         'mt-2':true,
          'w-48':profileMenu,
          'w-0':!profileMenu,
          'py-2':true,
@@ -44,9 +44,10 @@
               hover:bg-teal-600
               hover:text-white
               focus:outline-none
-              active:outline-none">
+              active:outline-none"
+              @click="signOut();toggleProfileMenu()"
+              @mouseleave="toggleProfileMenu">
         <label class="flex-shrink-0 cursor-pointer">Sign out </label>
-
       </button>
       </div>
     </div>
